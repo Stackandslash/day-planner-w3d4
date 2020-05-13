@@ -67,9 +67,18 @@ $(".container").on("click", function(e){
     }
 });
 
-//the function here will place a time slot for each key in the planner variable.
-for (const key in planner) {
-    makeSlot(key);
+//the function here will place a time slot for each key in the planner variable. Internet said for-in loops were not reliable to get proper orders out, and both for and the Object.keys variation spit out an extra slot, which displays wrong. A static for loop provides the desired result, but loses desired flexibility.
+
+//Object.keys(planner).forEach(function(keyVar){
+//    makeSlot(keyVar);
+//})
+
+//for (const key in planner) {
+//    makeSlot(key);
+//}
+
+for (let i = 0; i < 14; i++) {
+    makeSlot((i+7));
 }
 
 
