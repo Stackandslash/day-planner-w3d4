@@ -18,7 +18,7 @@ if (!localStorage.getItem("planner")){
     console.log("No stored planner");
 }
 else{
-    planner = localStorage.getItem("planner");
+    planner = JSON.parse(localStorage.getItem("planner"));
 }
 
 
@@ -54,9 +54,18 @@ rowEl.append($("<div class='col-1 hour'> <p>" + timeString + "</p></div>"));
 
 rowEl.append($('<textarea class="col-10 description ' + timeClass + '">' + planner[hour] + '</textarea>'));
 
-rowEl.append($("<button class='col-1 btn saveBtn'>Save</button>"));
+rowEl.append($("<button class='col-1 btn saveBtn' id='" + hour + "'>Save</button>"));
 }
 
+
+
+//Save function, detects a click anywhere in the container, then checks if the click is on an element with class saveBtn, before getting the specific row from an assigned ID on the button.
+$(".container").on("click", function(e){
+    if(e.target.classList.contains("saveBtn")){ 
+        planner[e.target.id] = $(e.target).prev()[0].value; //This seems needlessly complex.
+        localStorage.setItem("planner", JSON.stringify(planner));
+    }
+});
 
 //the function here will place a time slot for each key in the planner variable.
 for (const key in planner) {
