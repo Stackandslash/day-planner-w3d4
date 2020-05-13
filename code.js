@@ -1,5 +1,3 @@
-console.log("Howdi");
-
 var planner = {
     7: "",
     8: "",
@@ -17,7 +15,7 @@ var planner = {
     20: "",
 }
 if (!localStorage.getItem("planner")){
-    console.log("It's blank.");
+    console.log("No stored planner");
 }
 else{
     planner = localStorage.getItem("planner");
@@ -43,15 +41,13 @@ function makeSlot(hour){
         timeClass = "past";
     }
     
-    if(rawTime > 12){
-        timeString = (rawTime - 12) + " PM"
+    if(hour > 12){
+        timeString = (hour - 12) + " PM";
     }
     else{
-        timeString = (rawTime) + " AM"
+        timeString = (hour) + " AM";
     }
-
-    console.log(timeClass);
-var rowEl = $("<div class='row time-block' id='" + hour + "'>");
+var rowEl = $("<div class='row time-block'>");
 $(".container").append(rowEl);
 
 rowEl.append($("<div class='col-1 hour'> <p>" + timeString + "</p></div>"));
@@ -63,9 +59,9 @@ rowEl.append($("<button class='col-1 btn saveBtn'>Save</button>"));
 
 
 //the function here will place a time slot for each key in the planner variable.
-makeSlot(10);
-makeSlot(10);
-makeSlot(10);
+for (const key in planner) {
+    makeSlot(key);
+}
 
 
 //What if we set up an option to enter the time span you wanted to cover? The parts are already largely in place.
