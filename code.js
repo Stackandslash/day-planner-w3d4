@@ -54,7 +54,7 @@ rowEl.append($("<div class='col-1 hour'> <p>" + timeString + "</p></div>"));
 
 rowEl.append($('<textarea class="col-10 description ' + timeClass + '">' + planner[hour] + '</textarea>'));
 
-rowEl.append($("<button class='col-1 btn saveBtn' id='" + hour + "'>Save</button>"));
+rowEl.append($("<button class='col-1 btn saveBtn' id='" + hour + "'><span class='fas fa-save'></span></button>"));
 }
 
 
