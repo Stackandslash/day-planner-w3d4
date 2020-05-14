@@ -2,7 +2,7 @@ var planner = {
     7: "",
     8: "",
     9: "",
-    10: "This is the note for 10 AM",
+    10: "",
     11: "",
     12: "",
     13: "",
