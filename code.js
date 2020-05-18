@@ -14,6 +14,10 @@ var planner = {
   19: "",
   20: "",
 };
+
+const blockdate = moment().format("LLLL");
+$("#time").text(blockdate);
+
 if (!localStorage.getItem("planner")) {
   console.log("No stored planner");
 } else {
@@ -35,7 +39,6 @@ function makeSlot(hour) {
   console.log(rawTime, hour);
   if (rawTime < parseInt(hour)) {
     timeClass = "future";
-    console.log("it future");
   } else if (rawTime > parseInt(hour)) {
     timeClass = "past";
   }
@@ -85,7 +88,6 @@ $(".container").on("click", function (e) {
 //})
 
 //This loop option will still take one slot per entry in the planner object. With a relatively small change, it should allow the user to specify what time frame they want to plan for.
-console.log(planner);
 for (const key in planner) {
   makeSlot(key);
 }
