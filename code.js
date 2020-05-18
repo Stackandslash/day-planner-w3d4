@@ -32,9 +32,11 @@ function hourCheck() {
 function makeSlot(hour) {
   var timeClass = "present";
   var rawTime = moment().format("H");
-  if (rawTime < hour) {
+  console.log(rawTime, hour);
+  if (rawTime < parseInt(hour)) {
     timeClass = "future";
-  } else if (rawTime > hour) {
+    console.log("it future");
+  } else if (rawTime > parseInt(hour)) {
     timeClass = "past";
   }
 
