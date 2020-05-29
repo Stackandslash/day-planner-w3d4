@@ -1,5 +1,5 @@
 # day-planner-w3d4
-![Day Planner image](/assets/shot1.png)
+![Day Planner image](/assets/shot1.PNG)
 **A small, very basic day planner to demonstrate moment.js**
 Live link at [https://stackandslash.github.io/weather-dash/](https://stackandslash.github.io/weather-dash/)
 
